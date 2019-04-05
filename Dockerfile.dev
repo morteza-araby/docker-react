@@ -1,0 +1,13 @@
+# docker build -f Dockerfile.dev .
+# docker build -t eraarby/reactweb:latest -f Dockerfile.dev .
+# docker run eraarby/reactweb
+FROM node:alpine
+
+WORKDIR '/app'
+
+COPY package.json .
+RUN npm install
+
+COPY . .
+
+CMD ["npm", "run", "start"]
